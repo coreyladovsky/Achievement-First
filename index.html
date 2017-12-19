@@ -15,19 +15,13 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
 
-    function someFun(res) {
-      console.log(res)
-    }
-
     $("form").on("submit", (e) => {
       e.preventDefault()
       let username = $("input")[0].value
       let lookup = "https://api.github.com/users/" + username + "/repos"
-      console.log(lookup);
       $.ajax({
         method: "GET",
         url: lookup,
-
       })
       .then(res => res.map(obj => $("ul").append(`<li>${obj.name}</li>`)))
     })
